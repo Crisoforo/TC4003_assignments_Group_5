@@ -3,6 +3,9 @@ package cos418_hw1_1
 import (
 	"fmt"
 	"sort"
+	"io/ioutil"
+	"strings"
+	//"regexp"
 )
 
 // Find the top K most common words in a text document.
@@ -18,6 +21,14 @@ func topWords(path string, numWords int, charThreshold int) []WordCount {
 	// TODO: implement me
 	// HINT: You may find the `strings.Fields` and `strings.ToLower` functions helpful
 	// HINT: To keep only alphanumeric characters, use the regex "[^0-9a-zA-Z]+"
+
+	//Reading file
+	content, err := ioutil.ReadFile(path)
+	checkError(err)
+	text := strings.ToLower(string(content))
+	//fmt.Printf(text) //<-- Making sure it turns all strings into lower case
+
+
 	return nil
 }
 
